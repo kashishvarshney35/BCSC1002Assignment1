@@ -51,4 +51,18 @@ public class Library {
         Library library = (Library) k;
         return Arrays.equals(getTotalBook(), library.getTotalBook());
     }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(getTotalBook());
+    }
+
+    /**
+     * this method prints the issued books.
+     */
+    public void showIssuedBooks() {
+        for (Book books : this.totalBook) {
+            System.out.println(books);
+        }
+    }
 }

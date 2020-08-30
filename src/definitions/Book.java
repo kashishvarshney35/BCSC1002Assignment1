@@ -8,5 +8,12 @@ package definitions;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Book {
+public class Book() {
+    private String bookName;
+    private String authorOfTheBook;
+    private String bookISBN;
+
+    public Book(){
+        this.bookName =
+    }
 }

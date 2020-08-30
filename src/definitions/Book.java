@@ -1,10 +1,12 @@
 /*  Created by IntelliJ IDEA.
- *  User: Divyansh Bhardwaj (dbc2201)
- *  Date: 21/08/20
- *  Time: 3:49 PM
+ *  User: Kashish Varshney
+ *  Date: 29/08/20
+ *  Time: 2:30 PM
  *  File Name : Book.java
  * */
 package definitions;
+import java.util.Objects;
+import java.util.Scanner;
 
 public class Book {
 }

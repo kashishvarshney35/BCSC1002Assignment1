@@ -81,13 +81,14 @@ public class Student {
         if (this == k) return true;
         if (k == null || getClass() != k.getClass()) return false;
         Student student = (Student) k;
-        return (getUniversityRollNo() == student.getUniversityRollNo()) &&
-                (getNoOfBooksIssued() == student.getNoOfBooksIssued()) &&
-                Object.equals(scanner, student.scanner) &&
-                Object.equals(getFullName(), student.getFullName()) &&
-                Object.equals(getFirstName(), student.getFirstName()) &&
+        return getUniversityRollNo() == student.getUniversityRollNo() &&
+                getNoOfBooksIssued() == student.getNoOfBooksIssued() &&
+                Objects.equals(scanner, student.scanner) &&
+                Objects.equals(getFullName(), student.getFullName()) &&
+                Objects.equals(getFirstName(), student.getFirstName()) &&
                 Objects.equals(getMiddleName(), student.getMiddleName()) &&
-                Object.equals(getLastName(), student.getLastName());
+                Objects.equals(getLastName(), student.getLastName());
+
 
     }
 

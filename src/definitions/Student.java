@@ -6,7 +6,6 @@
  * */
 package definitions;
 
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -82,12 +81,12 @@ public class Student {
         if (this == k) return true;
         if (k == null || getClass() != k.getClass()) return false;
         Student student = (Student) k;
-        return getUniversityRollNo() == student.getUniversityRollNo() &&
-                getNoOfBooksIssued() == student.getNoOfBooksIssued() &&
+        return (getUniversityRollNo() == student.getUniversityRollNo()) &&
+                (getNoOfBooksIssued() == student.getNoOfBooksIssued()) &&
                 Object.equals(scanner, student.scanner) &&
                 Object.equals(getFullName(), student.getFullName()) &&
                 Object.equals(getFirstName(), student.getFirstName()) &&
-                Object.equals(getMiddleName(), student.getMiddleName()) &&
+                Objects.equals(getMiddleName(), student.getMiddleName()) &&
                 Object.equals(getLastName(), student.getLastName());
 
     }

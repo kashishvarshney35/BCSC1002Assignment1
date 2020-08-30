@@ -6,25 +6,30 @@
  * */
 package execution;
 
-import definitions.Book;
 import definitions.Library;
 import definitions.Student;
 
 import java.util.Scanner;
 
 public class FrontDesk {
-    public static final int NEW_BOOK = 1;
-    public static final int ISSUED_BOOKS = 4;
-    public static final int RETURNED_BOOKS = 6;
+    public static final int ISSUED_NEW_BOOK = 1;
+    public static final int PREVIOUS_ISSUED_BOOKS = 4;
+    public static final int RETURNED_ISSUED_BOOKS = 6;
     public static final int EXIT = 8;
 
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your name: ");
+        String firstName = scanner.nextLine();
+        String middleName = scanner.nextLine();
+        String lastName = scanner.nextLine();
+        System.out.println("Enter your University Roll No: ");
+        long universityRollNo = scanner.nextLong();
+        System.out.println("Enter no of books issued: ");
+        int noOfBooksIssued = scanner.nextInt();
+        Student student = new Student(firstName, middleName, lastName, universityRollNo, noOfBooksIssued);
         int studentReaction;
-        String returnBook;
-        Student student = new Student();
-        Book book = new Book();
         Library library = new Library();
 
         do {
@@ -37,30 +42,27 @@ public class FrontDesk {
             studentReaction = scanner.nextInt();
 
             switch (studentReaction) {
-                case NEW_BOOK:
-                    student.studentDetails();
-                    student.enterUniversityRollNo();
+                case ISSUED_NEW_BOOK: {
                     System.out.println("Save students details.");
                     System.out.println("Enter the name of the book you want to issue!");
-                    book.issueBookName();
-                    book.detailsOfBook();
-                    book.detailsOfIssuedBook();
-                    book.messageForTheIssuedBook();
-                    break;
-                case RETURNED_BOOKS:
-                    System.out.println("Enter the name of the book you want to be return!");
                     scanner.nextLine();
-                    returnBook = scanner.nextLine();
-                    library.returnBook(returnBook);
-                    break;
-                case ISSUED_BOOKS:
+                    String bookName = scanner.nextLine();
+                    library.showIssuedBooks(bookName);
+                }
+                case RETURNED_ISSUED_BOOKS: {
+                    System.out.println("Enter the no of the book you want to be return!");
+                    scanner.nextInt();
+                    String bookName = scanner.nextLine();
+                    library.returnBook(bookName);
+                }
+                case PREVIOUS_ISSUED_BOOKS: {
                     System.out.println("your issued books are: ");
                     library.showIssuedBooks();
-                    break;
+
+                }
+
             }
-
-        } while (studentReaction != EXIT);
-        scanner.close();
-
+            while (studentReaction != EXIT) ;
+            scanner.close();
+        }
     }
-}
